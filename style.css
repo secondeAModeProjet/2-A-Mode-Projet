@@ -1,0 +1,48 @@
+@font-face {
+    font-family: 'PoliceTitre';
+    src: url('fonts/BILLO___.TTF') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+font-family: 'PoliceP';
+    src: url('fonts/Hey Comic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+h1 {
+    font-family: 'PoliceTitre', sans-serif;
+    color: #ffffff;
+    font-size: 55px;
+}
+
+h2 {
+    font-family: 'PoliceP', sans-serif;
+    color: #ffffff;
+    font-size: 45px;
+}
+
+h3 {
+    font-family: 'PoliceP', sans-serif;
+    color: #ffffff;
+    font-size: 35px;
+}
+
+h4 {
+    font-family: 'PoliceP', sans-serif;
+    color: #ffffff;
+    font-size: 25px;
+}
+
+p {
+    font-family: 'PoliceP', sans-serif;
+    color: #ffffff;
+    font-size: 15px;
+}
+
+body {
+    background: linear-gradient(to bottom, #1c1c1c, #8f8f8f);
+    background-attachment: fixed;
+}
