@@ -1,13 +1,13 @@
 @font-face {
     font-family: 'PoliceTitre';
-    src: url('fonts/BILLO___.TTF') format('truetype');
+    src: url('BILLO___.TTF') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
 font-family: 'PoliceP';
-    src: url('fonts/Hey Comic.ttf') format('truetype');
+    src: url('Hey Comic.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
