@@ -43,12 +43,12 @@ p {
 }
 
 body {
-    background: linear-gradient(to bottom, #1c1c1c, #8f8f8f);
+    background-color : #1c1c1c;
     background-attachment: fixed;
 }
 
 label {
     font-family: 'PoliceTitre', sans-serif;
     color: #ffffff;
-    font-size: 15px;
+    font-size: 20px;
 }
