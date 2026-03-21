@@ -23,6 +23,7 @@
 
 	<label for="maRéponse3">À coté de combiens de châteaux passe la Loire ?</label>
 	<input type="text" id="meRéponse3" name="maRéponse3" placeholder="Écrire réponse ici">
+	<button onclick="repondre3()">Envoyer</button>
 	<p id="reponse3"></p>
 
 	<nav>
@@ -33,7 +34,7 @@
 
 	<script>
 		function repondre1() {
-			let message1 = document.getElementById("meRéponse1");
+			let message1 = document.getElementById("maRéponse1");
 			let reponse1 = "";
 			if (message1.includes("900")) {
 				reponse1 = "Oui, il y a environ 900 châteaux dans le val de Loire";
@@ -54,7 +55,7 @@
 		}
 
 		function repondre3() {
-			let message3 = document.getElementById("MaRéponse3");
+			let message3 = document.getElementById("maRéponse3");
 			let reponse3 = ""
 			if (message3.includes("6")) {
 				reponse3 = "Oui, ces châteaux sont : Chambord, Blois, Chaumont-sur-Loire, Amboise, Saumur et Montsoreaux";
