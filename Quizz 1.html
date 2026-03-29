@@ -11,18 +11,18 @@
 <body>
 
 	<h1>Thème 1 : Les Châteaux Du Val De Loire</h1>
-	<label for="maRéponse1">Combien il y a-t-il de chateaux dans le Val De Loire ?</label>
-	<input type="text" id="maRéponse1" name="maRéponse1" placeholder="Écrire réponse ici">
+	<label for="maReponse1">Combien il y a-t-il de chateaux dans le Val De Loire ?</label>
+	<input type="text" id="maReponse1" name="maReponse1" placeholder="Écrire réponse ici">
 	<button onclick="repondre1()">Envoyer</button>
 	<p id="reponse1"></p>
 
-	<label for="maRéponse2">Combien de châteaux du Val de Loire ont étés une résidence royale ?</label>
-	<input type="text" id="maRéponse2" name="maRéponse2" placeholder="Écrire réponse ici">
+	<label for="maReponse2">Combien de châteaux du Val de Loire ont étés une résidence royale ?</label>
+	<input type="text" id="maReponse2" name="maReponse2" placeholder="Écrire réponse ici">
 	<button onclick="repondre2()">Envoyer</button>
 	<p id="reponse2"></p>
 
-	<label for="maRéponse3">À coté de combiens de châteaux passe la Loire ?</label>
-	<input type="text" id="maRéponse3" name="maRéponse3" placeholder="Écrire réponse ici">
+	<label for="maReponse3">À coté de combiens de châteaux passe la Loire ?</label>
+	<input type="text" id="maReponse3" name="maReponse3" placeholder="Écrire réponse ici">
 	<button onclick="repondre3()">Envoyer</button>
 	<p id="reponse3"></p>
 
@@ -34,34 +34,36 @@
 
 	<script>
 		function repondre1() {
-			let message1 = document.getElementById("maRéponse1").value;
+			let message1 = document.getElementById("maReponse1").value;
 			let reponse1 = "";
 			if (message1.includes("900")) {
 				reponse1 = "Oui, il y a environ 900 châteaux dans le val de Loire";
 			} else {
 				reponse1 ="Faux";
 			}
+			document.getElementById("reponse1").textContent = reponse1;
 		}
 
 		function repondre2() {
-			let message2 = document.getElementById("maRéponse2").value;
+			let message2 = document.getElementById("maReponse2").value;
 			let reponse2 = "";
 			if (message2.includes("7")) {
 				reponse2 = "Oui, 7 châteaux ont étés une résidence royale (Blois, Amboise, Chambord, Chinon, Loches, Plessis-lès-Tours, Tours)";
 			} else {
 				reponse2 = "Faux"
 			}
-
+			document.getElementById("reponse2").textContent = reponse2;
 		}
 
 		function repondre3() {
-			let message3 = document.getElementById("maRéponse3").value;
+			let message3 = document.getElementById("maReponse3").value;
 			let reponse3 = "";
 			if (message3.includes("6")) {
 				reponse3 = "Oui, ces châteaux sont : Chambord, Blois, Chaumont-sur-Loire, Amboise, Saumur et Montsoreaux";
 			} else {
 				reponse3 = "Faux";
 			}
+			document.getElementById("reponse3").textContent = reponse3;
 		}
 	</script>
 
