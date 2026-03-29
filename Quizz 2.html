@@ -10,18 +10,59 @@
 
 <body>
 	<h1>Thème 2 : Nature Et Biodiversité</h1>
-	<label for="maRéponse1">Quel oiseau peut-on observer sur le bord de la Loire ?</label>
-	<input type="text" id="maRéponse1" name="maRéponse1" placeholder="Écrire réponse ici">
-	<p><br></p>
-	<label for="maRéponse2">Pourquoi la Loire change-t-elle souvent de profondeur ?</label>
-	<input type="text" id="maRéponse2" name="maRéponse2" placeholder="Écrire réponse ici">
-	<p><br></p>
-	<label for="maRéponse3">Combien d'espèce marine comporte la Loire ?</label>
-	<input type="text" id="maRéponse3" name="maRéponse3" placeholder="Écrire réponse ici">
-	<p><br></p>
+	<label for="maReponse1">Quel oiseau peut-on observer sur le bord de la Loire ?</label>
+	<input type="text" id="maReponse1" name="maReponse1" placeholder="Écrire réponse ici">
+	<button onclick="repondre1()">Envoyer</button>
+	<p id="reponse1"></p>
+
+	<label for="maReponse2">Pourquoi la Loire change-t-elle souvent de profondeur ?</label>
+	<input type="text" id="maReponse2" name="maReponse2" placeholder="Écrire réponse ici">
+	<button onclick="repondre2()">Envoyer</button>
+	<p id="reponse2"></p>
+
+	<label for="maReponse3">Combien d'espèce marine comporte la Loire ?</label>
+	<input type="text" id="maReponse3" name="maReponse3" placeholder="Écrire réponse ici">
+	<button onclick="repondre3()">Envoyer</button>
+	<p id="reponse3"></p>
+
 	<nav>
 		<p><a href="Home.html">- Retour au Home</a></p>
 		<p><a href="Quizz 2.html">- Quizz suivant</a></p>
 
 	</nav>
+
+	<script>
+		function repondre1() {
+			let message1 = document.getElementById("maReponse1");
+			let reponse1 = "";
+			if (message.includes("aigrette") || message.includes("héron") || message.includes("goéland") || message.includes("sterne") || message.includes("gravelot") || message.icludes("vanneau") || message.includes("hirondelle")) {
+				reponse1 = "Oui, les oiseaux observables au bord de la Loire sont l'Aigrette, le Héron, le goéland, l'hirondelle, la Sterne naine, le petit Gravelot et le Vanneau huppé";
+			} else {
+				reponse1 = "Faux";
+			}
+			document.getElementById("reponse1").textContent = reponse1;
+		}
+
+		function repondre2() {
+			let message2 = document.getElementById("maReponse2");
+			let reponse2 = "";
+			if (message.includes("érosion") || message.includes("dépôt") || message.includes("sédiment") || message.includes("crues")) {
+				reponse2 = "Effectivement, ces changements sont principalement dus à l'érosion, aux dépôts de sédiments et aux crues";
+			} else {
+				reponse2 = "Faux";
+			}
+			document.getElementById("reponse2").textContent = reponse2;
+		}
+
+		function repondre3() {
+			let message3 = document.getElementById("maReponse3");
+			let reponse3 = "";
+			if (message.includes("")) {
+				reponse3 = "";
+			} else {
+				reponse3 = "Faux";
+			}
+			document.getElementById("reponse3").textContent = reponse3;
+		}
+	</script>
 </body>
