@@ -33,7 +33,7 @@
 
 	<script>
 		function repondre1() {
-			let message1 = document.getElementById("maReponse1").value;
+			let message1 = document.getElementById("maReponse1").value.toLowerCase();
 			let reponse1 = "";
 			if (message1.includes("aigrette") || message1.includes("héron") || message1.includes("goéland") || message1.includes("sterne") || message1.includes("gravelot") || message1.includes("vanneau") || message1.includes("hirondelle")) {
 				reponse1 = "Oui, les oiseaux observables au bord de la Loire sont l'Aigrette, le Héron, le goéland, l'hirondelle, la Sterne naine, le petit Gravelot et le Vanneau huppé";
@@ -44,7 +44,7 @@
 		}
 
 		function repondre2() {
-			let message2 = document.getElementById("maReponse2").value;
+			let message2 = document.getElementById("maReponse2").value.toLowerCase();
 			let reponse2 = "";
 			if (message2.includes("érosion") || message2.includes("dépôt") || message2.includes("sédiment") || message2.includes("crues")) {
 				reponse2 = "Effectivement, ces changements sont principalement dus à l'érosion, aux dépôts de sédiments et aux crues";
@@ -55,7 +55,7 @@
 		}
 
 		function repondre3() {
-			let message3 = document.getElementById("maReponse3").value;
+			let message3 = document.getElementById("maReponse3").value.toLowerCase();
 			let reponse3 = "";
 			if (message3.includes("")) {
 				reponse3 = "";
@@ -64,5 +64,7 @@
 			}
 			document.getElementById("reponse3").textContent = reponse3;
 		}
+
 	</script>
+
 </body>
