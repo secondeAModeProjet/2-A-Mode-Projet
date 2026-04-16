@@ -45,6 +45,7 @@ p {
 body {
     background-color: #1c1c1c;
     background-attachment: fixed;
+    text-align: center;
 }
 
 label {
