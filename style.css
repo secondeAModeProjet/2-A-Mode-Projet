@@ -42,18 +42,20 @@ p {
     font-size: 15px;
 }
 
-body {
-    background-color: #1c1c1c;
-    background-attachment: fixed;
-    text-align: center;
-}
-
 label {
     font-family: 'PoliceP', sans-serif;
     color: #ffffff;
     font-size: 20px;
 }
 
-.question {
+body {
+    background-color: #1c1c1c;
+    background-attachment: fixed;
+    text-align: center;
+}
 
+.tout {
+    display: flex;
+    align-items: center;
+    gap: 20px;
 }
