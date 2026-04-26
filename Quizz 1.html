@@ -9,65 +9,155 @@
 </head>
 
 <body>
-	<div class="tout">
 
-		<h1>Thème 1 : Les Châteaux Du Val De Loire</h1>
-		<label for="maReponse1">Combien y a-t-il de chateaux dans le Val De Loire ?</label>
-		<input type="text" id="maReponse1" name="maReponse1" placeholder="Écrire réponse ici">
-		<button onclick="repondre1()">Envoyer</button>
-		<p id="reponse1"></p>
+	<div class ="header">
 
-		<label for="maReponse2">Combien de châteaux du Val de Loire ont été une résidence royale ?</label>
-		<input type="text" id="maReponse2" name="maReponse2" placeholder="Écrire réponse ici">
-		<button onclick="repondre2()">Envoyer</button>
-		<p id="reponse2"></p>
+		<div class ="agauche">
+			<img src="vigne.jpg" class="img_vigne">
+		</div>
 
-		<label for="maReponse3">À côté de combiens de châteaux passe la Loire ?</label>
-		<input type="text" id="maReponse3" name="maReponse3" placeholder="Écrire réponse ici">
-		<button onclick="repondre3()">Envoyer</button>
-		<p id="reponse3"></p>
+		<div class="texte">
+			<h1 class="fondu">Thème : Les Châteaux Du Val De Loire</h1>
 
-		<nav>
-			<p><a href="Home.html">- Retour au Home</a></p>
-			<p><a href="Quizz 2.html">- Thème suivant</a></p>
+			<div class="question">
+			<h2>Combien y a-t-il de chateaux dans le Val De Loire ?</h2>
 
-		</nav>
+			<input type="radio" id="r1" name="q1" value="50">
+			<label for="r1">50</label>
 
-		<script>
-			function repondre1() {
-				let message1 = document.getElementById("maReponse1").value.trim();
-				let reponse1 = "";
-				if (message1.trim() === "900") {
-					reponse1 = "Oui, il y a environ 900 châteaux dans le val de Loire";
-				} else {
-					reponse1 ="Faux";
-				}
-				document.getElementById("reponse1").textContent = reponse1;
-			}
+			<input type="radio" id="r2" name="q1" value="900">
+			<label for="r2">900</label>
 
-			function repondre2() {
-				let message2 = document.getElementById("maReponse2").value.trim();
-				let reponse2 = "";
-				if (message2.trim() === "7") {
-					reponse2 = "Oui, 7 châteaux ont étés une résidence royale (Blois, Amboise, Chambord, Chinon, Loches, Plessis-lès-Tours, Tours)";
-				} else {
-					reponse2 = "Faux"
-				}
-				document.getElementById("reponse2").textContent = reponse2;
-			}
+			<input type="radio" id="r3" name="q1" value="400">
+			<label for="r3">400</label><br>
+			<br>
+			<button onclick="afficherReponse(this, '900', 'seule', 'Oui, il y a environ 900 châteaux dans le Val de Loire.', 'Non, il y a environ 900 chateaux dans le Val de Loire.')">Voir la réponse</button>
+			<p class="reponse"></p>
+			</div>
 
-			function repondre3() {
-				let message3 = document.getElementById("maReponse3").value.trim;
-				let reponse3 = "";
-				if (message3.trim() === "6") {
-					reponse3 = "Oui, ces châteaux sont : Chambord, Blois, Chaumont-sur-Loire, Amboise, Saumur et Montsoreaux";
-				} else {
-					reponse3 = "Faux";
-				}
-				document.getElementById("reponse3").textContent = reponse3;
-			}
-		</script>
+			<div class="question">
+			<h2>Parmis ces châteaux du Val de Loire, lesquels ont été une résidence royale ?</h2>
+			<label><input type="checkbox" value="Chinon">Chinon</label><br>
+			<label><input type ="checkbox" value="Brissac">Brissac</label><br>
+			<label><input type="checkbox" value="Villandry">Villandry</label><br>
+			<label><input type="checkbox" value="Amboise">Amboise</label><br>
+			<label><input type="checkbox" value="Valençay">Valençay</label><br>
+			<br>
+			<button onclick="afficherReponse(this, ['Chinon', 'Amboise'], 'multi','Oui, 7 châteaux ont étés une résidence royale : Blois, Amboise, Chambord, Chinon, Loches, Plessis-lès-Tours, Tours', 'Non, parmis ces châteaux, ce sont ceux de Chinon et Amboise qui ont étés une résidence royale.')">Voir la réponse</button>
+			<p class="reponse"></p>
+			</div>
 
+			<div class="question">
+			<h2>À côté de combiens de châteaux passe la Loire ?</h2>
+			<label><input type="radio" name="q3" value="24">24</label><br>
+			<label><input type="radio" name="q3" value="57">57</label><br>
+			<label><input type="radio" name="q3" value="6">6</label><br>
+			<label><input type="radio" name="q3" value="13">13</label><br>
+			<br>
+			<button onclick="afficherReponse(this, '6', 'seule', 'Oui, ces châteaux sont : Chambord, Blois, Chaumont-sur-Loire, Amboise, Saumur et Montsoreaux', 'Non, la Loire passe à côté de 6 châteaux.')">Voire la réponse</button>
+			<p class="reponse"></p>
+			</div>
+
+			<nav>
+				<p><a href="Home.html">- Retour au Home</a></p>
+				<p><a href="Quizz 2.html">- Thème suivant</a></p>
+
+			</nav>
+		</div>
+
+		<div class="adroite">
+		<!-- rien aussi -->
+		</div>
+	
 	</div>
 
+	<script>
+		function afficherReponse(bouton, bonneReponse, mode, bon, faux) {
+			let question = bouton.parentElement;
+			let cases;
+			if (mode === "seule") {
+				cases = question.querySelectorAll("input[type=radio]");	
+			} else if (mode === "multi") {
+				cases = question.querySelectorAll("input[type=checkbox]");	
+			}
+				
+			let zone = question.querySelector(".reponse");
+
+			let reponsesChoisies = [];
+
+			cases.forEach(function(c) {
+				if (c.checked) {
+					reponsesChoisies.push(c.value);
+				}
+			});
+
+			// mode une seule réponse
+
+			if (mode === "seule") {
+				if (reponsesChoisies.length === 1 && reponsesChoisies[0] === bonneReponse) {
+					zone.innerHTML = bon;
+					zone.classList.remove("fondu");
+					void zone.offsetWidth;
+					zone.classList.add("fondu");
+				} else {
+					zone.innerHTML = faux;
+					zone.classList.remove("fondu");
+					void zone.offsetWidth;
+					zone.classList.add("fondu");
+				}
+			}
+
+			// mode plusieurs réponses
+
+			else if (mode === "multi") {
+				let bonnes = 0;
+				let mauvaises = 0;
+
+				reponsesChoisies.forEach(function(r) {
+					if (bonneReponse.includes(r)) {
+						bonnes++;
+					} else {
+						mauvaises++;
+					}
+				});
+
+				if (bonnes === bonneReponse.length && mauvaises === 0) {
+					zone.innerHTML = bon;
+					zone.classList.remove("fondu");
+					void zone.offsetWidth;
+					zone.classList.add("fondu");
+				} else {
+					zone.innerHTML = faux;
+					zone.classList.remove("fondu");
+					void zone.offsetWidth;
+					zone.classList.add("fondu");
+				}
+			}
+		}
+
+		function repondre2() {
+			let message2 = document.getElementById("maReponse2").value.trim();
+			let reponse2 = "";
+			if (message2.trim() === "7") {
+				reponse2 = "Oui, 7 châteaux ont étés une résidence royale (Blois, Amboise, Chambord, Chinon, Loches, Plessis-lès-Tours, Tours)";
+			} else {
+				reponse2 = "Faux"
+			}
+			document.getElementById("reponse2").textContent = reponse2;
+		}
+
+		function repondre3() {
+			let message3 = document.getElementById("maReponse3").value.trim;
+			let reponse3 = "";
+			if (message3.trim() === "6") {
+				reponse3 = "Oui, ces châteaux sont : Chambord, Blois, Chaumont-sur-Loire, Amboise, Saumur et Montsoreaux";
+			} else {
+				reponse3 = "Faux";
+			}
+			document.getElementById("reponse3").textContent = reponse3;
+		}
+	</script>
+
 </body>
+
+<!--faire quizz avec plusieurs propo à cocher , mettre thème vin, carte saumur et une autre avec vue de plus loin avec principaux vignobles de saumur , remettre dans l'ordre des étapes pour vin , truc à relier, -->

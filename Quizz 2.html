@@ -9,33 +9,128 @@
 </head>
 
 <body>
-	<h1>Thème 2 : Nature Et Biodiversité</h1>
-	<label for="maReponse1">Quel oiseau peut-on observer sur le bord de la Loire ?</label>
-	<input type="text" id="maReponse1" name="maReponse1" placeholder="Écrire réponse ici">
-	<button onclick="repondre1()">Envoyer</button>
-	<p id="reponse1"></p>
 
-	<label for="maReponse2">Pourquoi la Loire change-t-elle souvent de profondeur ?</label>
-	<input type="text" id="maReponse2" name="maReponse2" placeholder="Écrire réponse ici">
-	<button onclick="repondre2()">Envoyer</button>
-	<p id="reponse2"></p>
+	<div class="header">
 
-	<label for="maReponse3">Combien d'espèce marine comporte la Loire ?</label>
-	<input type="text" id="maReponse3" name="maReponse3" placeholder="Écrire réponse ici">
-	<button onclick="repondre3()">Envoyer</button>
-	<p id="reponse3"></p>
+	<div class="agauche"></div>
+
+	<div class="texte">
+	<h1 class="fondu">Thème : Nature Et Biodiversité</h1>
+	
+	<div class="question">
+	<h2>Quel oiseau peut-on observer sur le bord de la Loire ?</h2>
+	<label><input type="checkbox" value="Faucon">Faucon</label><br>
+	<label><input type="checkbox" value="Héron">Héron</label><br>
+	<label><input type="checkbox" value="Aigle">Aigle</label><br>
+	<label><input type="checkbox" value="Pigeon">Pigeon</label><br>
+	<label><input type="checkbox" value="Goéland">Goéland</label><br>
+	<br>
+	<button onclick="afficherReponse(this, ['Héron', 'Goéland'], 'multi', 'Oui, les oiseaux observables au bord de la Loire sont l\'Aigrette, le Héron, le goéland, l\'hirondelle, la Sterne naine, le petit Gravelot et le Vanneau huppé', 'Non, ce sont le Héron et le Goéland')">Voire la réponse</button>
+	<p class="reponse"></p>
+	</div>
+
+	<div class="question">
+	<h2>Quel facteur provoque le changement de profondeur de la Loire ?</h2>
+	<label><input type="checkbox" value="L'érosion">L'érosion</label><br>
+	<label><input type="checkbox" value="Le mouvement des plaques tectoniques">Le mouvement des plaques tectoniques</label><br>
+	<label><input type="checkbox" value="La température">La température</label><br>
+	<label><input type="checkbox" value="Les dépôts de sédiments">Les dépôts de sédiments</label><br>
+	<br>
+	<button onclick="afficherReponse(this, ['L\'érosion', 'Les dépôts de sédiments'], 'multi', 'Effectivement, ces changements sont principalement dus à l\'érosion, aux dépôts de sédiments et aux crues', 'Non, les facteurs sont l\'érosion et les dépôts de sédiments')">Voire la réponse</button>
+	<p class="reponse"></p>
+	</div>
+
+	<div class="question">
+	<h2>La Loire comporte l'un de ces poissons :</h2>
+	<label><input type="radio" name="q3" value="La sardine">La sardine</label><br>
+	<label><input type="radio" name="q3" value="Le goujon">Le goujon</label><br>
+	<label><input type="radio" name="q3" value="L'espadon">L'espadon</label><br>
+	<label><input type="radio" name="q3" value="Le maquerau">Le maquereau</label><br>
+	<br>
+	<button onclick="afficherReponse(this, 'Le goujon', 'seule', 'Oui, la Loire abrite le goujon, mais également le brochet, la carpe, le saumon ou encore l\'anguille', 'Non, la Loire abrite le goujon')">Voire la réponse</button>
+	<p class="reponse"></p>
+	</div>
 
 	<nav>
 		<p><a href="Home.html">- Retour au Home</a></p>
-		<p><a href="Quizz 2.html">- Quizz suivant</a></p>
+		<p><a href="Quizz 3.html">- Quizz suivant</a></p>
 
 	</nav>
 
+	</div>
+
+	<div class="adroite"></div>
+
+	</div>
+
 	<script>
+		function afficherReponse(bouton, bonneReponse, mode, bon, faux) {
+			let question = bouton.parentElement;
+			let cases;
+			if (mode === "seule") {
+				cases = question.querySelectorAll("input[type=radio]");	
+			} else if (mode === "multi") {
+				cases = question.querySelectorAll("input[type=checkbox]");	
+			}
+				
+			let zone = question.querySelector(".reponse");
+
+			let reponsesChoisies = [];
+
+			cases.forEach(function(c) {
+				if (c.checked) {
+					reponsesChoisies.push(c.value);
+				}
+			});
+
+			// mode une seule réponse
+
+			if (mode === "seule") {
+				if (reponsesChoisies.length === 1 && reponsesChoisies[0] === bonneReponse) {
+					zone.innerHTML = bon;
+					zone.classList.remove("fondu");
+					void zone.offsetWidth;
+					zone.classList.add("fondu");
+				} else {
+					zone.innerHTML = faux;
+					zone.classList.remove("fondu");
+					void zone.offsetWidth;
+					zone.classList.add("fondu");
+				}
+			}
+
+			// mode plusieurs réponses
+
+			else if (mode === "multi") {
+				let bonnes = 0;
+				let mauvaises = 0;
+
+				reponsesChoisies.forEach(function(r) {
+					if (bonneReponse.includes(r)) {
+						bonnes++;
+					} else {
+						mauvaises++;
+					}
+				});
+
+				if (bonnes === bonneReponse.length && mauvaises === 0) {
+					zone.innerHTML = bon;
+					zone.classList.remove("fondu");
+					void zone.offsetWidth;
+					zone.classList.add("fondu");
+				} else {
+					zone.innerHTML = faux;
+					zone.classList.remove("fondu");
+					void zone.offsetWidth;
+					zone.classList.add("fondu");
+				}
+			}
+		}
+
 		function repondre1() {
 			let message1 = document.getElementById("maReponse1").value.toLowerCase();
 			let reponse1 = "";
-			if (message1.includes("aigrette") || message1.includes("héron") || message1.includes("goéland") || message1.includes("sterne") || message1.includes("gravelot") || message1.includes("vanneau") || message1.includes("hirondelle")) {
+			if (message1.trim() === "aigrette" || message1.trim() === "héron" || message1.trim() === "goéland" || message1.trim() === "sterne" || message1.trim() === "gravelot" || message1.trim() === "vanneau" || message1.trim() === "hirondelle") {
 				reponse1 = "Oui, les oiseaux observables au bord de la Loire sont l'Aigrette, le Héron, le goéland, l'hirondelle, la Sterne naine, le petit Gravelot et le Vanneau huppé";
 			} else {
 				reponse1 = "Faux";
@@ -46,7 +141,7 @@
 		function repondre2() {
 			let message2 = document.getElementById("maReponse2").value.toLowerCase();
 			let reponse2 = "";
-			if (message2.includes("érosion") || message2.includes("dépôt") || message2.includes("sédiment") || message2.includes("crues")) {
+			if (message2.trim() === "érosion" || message2.trim() === "dépôt" || message2.trim() === "sédiment" || message2.trim() === "crues") {
 				reponse2 = "Effectivement, ces changements sont principalement dus à l'érosion, aux dépôts de sédiments et aux crues";
 			} else {
 				reponse2 = "Faux";

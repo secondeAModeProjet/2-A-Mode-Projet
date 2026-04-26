@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Thème 3 : Vins et vignobles du Val de Loire</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+	<div class="header">
+
+		<div class="agauche">
+			<!--rien-->
+		</div>
+
+		<div class="texte">
+
+			<h1 class="fondu">Thème : vins et vignobles de Saumur</h1>
+
+			<div class="question">
+				<h2>Parmi ces vins, lequel est fait à Saumur ?</h2>
+
+				<input type="radio" id="r1" name="q1" value="Côte de Bourg">
+				<label for="r1">Côte de Bourg</label>
+
+				<input type="radio" id="r2" name="q1" value="Sauterne">
+				<label for="r2">Sauterne</label>
+
+				<input type="radio" id="r3" name="q1" value="Merlot">
+				<label for="r3">Merlot</label>
+
+				<input type="radio" id="r4" name="q1" value="Champigny">
+				<label for="r4">Champigny</label>
+				<br>
+				<button onclick="afficherReponse(this, 'Champigny', 'seule', 'Oui, le Champigny est un vin produit à Saumur.', 'Non, c\'est le Champigny qui est produit à Saumur')">Voire la réponse</button>
+				<p class="reponse"></p>
+			</div>
+
+			<div class="question">
+				<ul id="liste">
+					<li draggable="true">Vendanges (récolte des raisins)</li>
+					<li draggable="true">Égrappage et foulage</li>
+					<li draggable="true">Fermentation</li>
+					<li draggable="true">Pressurage</li>
+					<li draggable="true">Élevage</li>
+					<li draggable="true">Mise en bouteille</li>
+				</ul>
+
+				<br>
+				<button onclick="verifier()">Vérifier</button>
+				<p class="reponse2"></p>
+			</div>
+
+		</div>
+
+		<div class="adroite">
+			<!--rien aussi-->
+		</div>
+
+	</div>
+	
+	<script>
+		function afficherReponse(bouton, bonneReponse, mode, bon, faux) {
+			let question = bouton.parentElement;
+			let cases;
+			if (mode === "seule") {
+				cases = question.querySelectorAll("input[type=radio]");	
+			} else if (mode === "multi") {
+				cases = question.querySelectorAll("input[type=checkbox]");	
+			}
+				
+			let zone = question.querySelector(".reponse");
+
+			let reponsesChoisies = [];
+
+			cases.forEach(function(c) {
+				if (c.checked) {
+					reponsesChoisies.push(c.value);
+				}
+			});
+
+			// mode une seule réponse
+
+			if (mode === "seule") {
+				if (reponsesChoisies.length === 1 && reponsesChoisies[0] === bonneReponse) {
+					zone.innerHTML = bon;
+					zone.classList.remove("fondu");
+					void zone.offsetWidth;
+					zone.classList.add("fondu");
+				} else {
+					zone.innerHTML = faux;
+					zone.classList.remove("fondu");
+					void zone.offsetWidth;
+					zone.classList.add("fondu");
+				}
+			}
+
+			// mode plusieurs réponses
+
+			else if (mode === "multi") {
+				let bonnes = 0;
+				let mauvaises = 0;
+
+				reponsesChoisies.forEach(function(r) {
+					if (bonneReponse.includes(r)) {
+						bonnes++;
+					} else {
+						mauvaises++;
+					}
+				});
+
+				if (bonnes === bonneReponse.length && mauvaises === 0) {
+					zone.innerHTML = bon;
+					zone.classList.remove("fondu");
+					void zone.offsetWidth;
+					zone.classList.add("fondu");
+				} else {
+					zone.innerHTML = faux;
+					zone.classList.remove("fondu");
+					void zone.offsetWidth;
+					zone.classList.add("fondu");
+				}
+			}
+		}
+
+		document.addEventListener("DOMContentLoaded", function() {
+		let elementGlisse = null;
+		let items =document.querySelectorAll("#liste li");
+		items.forEach(item => {
+
+		//Début du drag
+		item.addEventListener("dragstart", function() {
+            elementGlisse = this;
+            this.classList.add("dragging");
+        });
+        
+		// Fin du drag
+        item.addEventListener("dragend", function() {
+            this.classList.remove("dragging");
+        });
+
+        // Autoriser le drop
+        item.addEventListener("dragover", function(e) {
+            e.preventDefault();
+            this.classList.add("over");
+        });
+
+        // Quitte la zone
+        item.addEventListener("dragleave", function() {
+            this.classList.remove("over");
+        });
+
+        // Drop
+        item.addEventListener("drop", function() {
+            this.classList.remove("over");
+
+            let parent = this.parentNode;
+            parent.insertBefore(elementGlisse, this);
+
+			elementGlisse.classList.add("pop");
+			setTimeout(() => {
+				elementGlisse.classList.remove("pop");
+			}, 300);
+        });
+
+		});
+
+		});
+
+		function verifier() {
+    		let items = document.querySelectorAll("#liste li");
+    		let ordre = ["Vendanges (récolte des raisins)", "Égrappage et foulage", "Fermentation", "Pressurage", "Élevage", "Mise en bouteille"];
+			
+			let question = document.querySelector("#liste").parentElement;
+			let zone = document.querySelector(".reponse2");
+
+    		let correct = true;
+
+    		items.forEach((item, index) => {
+    	    if (item.textContent !== ordre[index]) {
+          	  correct = false;
+       		 }
+   		 	});
+			zone.textContent = correct ? "Bravo !" : "Pas encore !";
+			
+    		zone.classList.remove("bon", "faux");
+			zone.classList.add(correct ? "bon" : "faux");
+
+			zone.classList.remove("visible");
+   			void zone.offsetWidth;
+    		zone.classList.add("visible");
+
+			let liste = document.querySelector("#liste");
+
+			liste.classList.remove("success", "error");
+			void liste.offsetWidth;
+			
+			if (correct) {
+			    liste.classList.add("success");
+			} else {
+			    liste.classList.add("error");
+			}
+		}
+
+	</script>
+
+</body>
