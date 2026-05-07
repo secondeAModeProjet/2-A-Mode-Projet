@@ -29,7 +29,7 @@
 			<label for="r2">900</label>
 
 			<input type="radio" id="r3" name="q1" value="400">
-			<label for="r3">400</label><br>
+			<label for="r3">400</label>
 			<br>
 			<button onclick="afficherReponse(this, '900', 'seule', 'Oui, il y a environ 900 châteaux dans le Val de Loire.', 'Non, il y a environ 900 chateaux dans le Val de Loire.')">Voir la réponse</button>
 			<p class="reponse"></p>
@@ -37,25 +37,43 @@
 
 			<div class="question">
 			<h2>Parmis ces châteaux du Val de Loire, lesquels ont été une résidence royale ?</h2>
-			<label><input type="checkbox" value="Chinon">Chinon</label><br>
-			<label><input type ="checkbox" value="Brissac">Brissac</label><br>
-			<label><input type="checkbox" value="Villandry">Villandry</label><br>
-			<label><input type="checkbox" value="Amboise">Amboise</label><br>
-			<label><input type="checkbox" value="Valençay">Valençay</label><br>
+
+			<input type="checkbox" id="c1" value="Chinon">
+			<label for="c1">Chinon</label>
+			
+			<input type ="checkbox" id="c2" value="Brissac">
+			<label for="c2">Brissac</label>
+			
+			<input type="checkbox" id="c3" value="Villandry">
+			<label for="c3">Villandry</label>
+			
+			<input type="checkbox" id="c4" value="Amboise">
+			<label for="c4">Amboise</label>
+
+			<input type="checkbox" id="c5" value="Valençay">
+			<label for="c5">Valençay</label>
 			<br>
 			<button onclick="afficherReponse(this, ['Chinon', 'Amboise'], 'multi','Oui, 7 châteaux ont étés une résidence royale : Blois, Amboise, Chambord, Chinon, Loches, Plessis-lès-Tours, Tours', 'Non, parmis ces châteaux, ce sont ceux de Chinon et Amboise qui ont étés une résidence royale.')">Voir la réponse</button>
 			<p class="reponse"></p>
 			</div>
 
 			<div class="question">
-			<h2>À côté de combiens de châteaux passe la Loire ?</h2>
-			<label><input type="radio" name="q3" value="24">24</label><br>
-			<label><input type="radio" name="q3" value="57">57</label><br>
-			<label><input type="radio" name="q3" value="6">6</label><br>
-			<label><input type="radio" name="q3" value="13">13</label><br>
-			<br>
-			<button onclick="afficherReponse(this, '6', 'seule', 'Oui, ces châteaux sont : Chambord, Blois, Chaumont-sur-Loire, Amboise, Saumur et Montsoreaux', 'Non, la Loire passe à côté de 6 châteaux.')">Voire la réponse</button>
-			<p class="reponse"></p>
+				<h2>À côté de combiens de châteaux passe la Loire ?</h2>
+			
+				<input type="radio" id="r4" name="q3" value="24">
+				<label for="r4">24</label>
+
+				<input type="radio" id="r5" name="q3" value="57">
+				<label for="r5">57</label>
+
+				<input type="radio" id="r6" name="q3" value="6">
+				<label for="r6">6</label>
+
+				<input type="radio" id="r7" name="q3" value="13">
+				<label for="r7">13</label>
+				<br>
+				<button onclick="afficherReponse(this, '6', 'seule', 'Oui, ces châteaux sont : Chambord, Blois, Chaumont-sur-Loire, Amboise, Saumur et Montsoreaux', 'Non, la Loire passe à côté de 6 châteaux.')">Voir la réponse</button>
+				<p class="reponse"></p>
 			</div>
 
 			<nav>

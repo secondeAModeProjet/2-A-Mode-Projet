@@ -12,54 +12,80 @@
 
 	<div class="header">
 
-	<div class="agauche"></div>
+		<div class="agauche"></div>
 
-	<div class="texte">
-	<h1 class="fondu">Thème : Nature Et Biodiversité</h1>
+		<div class="texte">
+		<h1 class="fondu">Thème : Nature Et Biodiversité</h1>
 	
-	<div class="question">
-	<h2>Quel oiseau peut-on observer sur le bord de la Loire ?</h2>
-	<label><input type="checkbox" value="Faucon">Faucon</label><br>
-	<label><input type="checkbox" value="Héron">Héron</label><br>
-	<label><input type="checkbox" value="Aigle">Aigle</label><br>
-	<label><input type="checkbox" value="Pigeon">Pigeon</label><br>
-	<label><input type="checkbox" value="Goéland">Goéland</label><br>
-	<br>
-	<button onclick="afficherReponse(this, ['Héron', 'Goéland'], 'multi', 'Oui, les oiseaux observables au bord de la Loire sont l\'Aigrette, le Héron, le goéland, l\'hirondelle, la Sterne naine, le petit Gravelot et le Vanneau huppé', 'Non, ce sont le Héron et le Goéland')">Voire la réponse</button>
-	<p class="reponse"></p>
-	</div>
+		<div class="question">
+		<h2>Quel oiseau peut-on observer sur le bord de la Loire ?</h2>
 
-	<div class="question">
-	<h2>Quel facteur provoque le changement de profondeur de la Loire ?</h2>
-	<label><input type="checkbox" value="L'érosion">L'érosion</label><br>
-	<label><input type="checkbox" value="Le mouvement des plaques tectoniques">Le mouvement des plaques tectoniques</label><br>
-	<label><input type="checkbox" value="La température">La température</label><br>
-	<label><input type="checkbox" value="Les dépôts de sédiments">Les dépôts de sédiments</label><br>
-	<br>
-	<button onclick="afficherReponse(this, ['L\'érosion', 'Les dépôts de sédiments'], 'multi', 'Effectivement, ces changements sont principalement dus à l\'érosion, aux dépôts de sédiments et aux crues', 'Non, les facteurs sont l\'érosion et les dépôts de sédiments')">Voire la réponse</button>
-	<p class="reponse"></p>
-	</div>
+		<input type="checkbox" id="c1" value="Faucon">
+		<label for="c1">Faucon</label>
 
-	<div class="question">
-	<h2>La Loire comporte l'un de ces poissons :</h2>
-	<label><input type="radio" name="q3" value="La sardine">La sardine</label><br>
-	<label><input type="radio" name="q3" value="Le goujon">Le goujon</label><br>
-	<label><input type="radio" name="q3" value="L'espadon">L'espadon</label><br>
-	<label><input type="radio" name="q3" value="Le maquerau">Le maquereau</label><br>
-	<br>
-	<button onclick="afficherReponse(this, 'Le goujon', 'seule', 'Oui, la Loire abrite le goujon, mais également le brochet, la carpe, le saumon ou encore l\'anguille', 'Non, la Loire abrite le goujon')">Voire la réponse</button>
-	<p class="reponse"></p>
-	</div>
+		<input type="checkbox" id="c2" value="Héron">
+		<label for="c2">Héron</label>
 
-	<nav>
-		<p><a href="Home.html">- Retour au Home</a></p>
-		<p><a href="Quizz 3.html">- Quizz suivant</a></p>
+		<input type="checkbox" id="c3" value="Aigle">
+		<label for="c3">Aigle</label>
 
-	</nav>
+		<input type="checkbox" id="c4" value="Pigeon">
+		<label for="c4">Pigeon</label>
 
-	</div>
+		<input type="checkbox" id="c5" value="Goéland">
+		<label for="c5">Goéland</label>
+		<br>
+		<button onclick="afficherReponse(this, ['Héron', 'Goéland'], 'multi', 'Oui, les oiseaux observables au bord de la Loire sont l\'Aigrette, le Héron, le goéland, l\'hirondelle, la Sterne naine, le petit Gravelot et le Vanneau huppé', 'Non, ce sont le Héron et le Goéland')">Voir la réponse</button>
+		<p class="reponse"></p>
+		</div>
 
-	<div class="adroite"></div>
+		<div class="question">
+			<h2>Quels facteurs provoquent le changement de profondeur de la Loire ?</h2>
+
+			<input type="checkbox" id="c6" value="L'érosion">
+			<label for="c6">L'érosion</label>
+
+			<input type="checkbox" id="c7" value="Le mouvement des plaques tectoniques">
+			<label for="c7">Le mouvement des plaques tectoniques</label>
+
+			<input type="checkbox" id="c8" value="La température">
+			<label for="c8">La température</label>
+
+			<input type="checkbox" id="c9" value="Les dépôts de sédiments">
+			<label for="c9">Les dépôts de sédiments</label>
+			<br>
+			<button onclick="afficherReponse(this, ['L\'érosion', 'Les dépôts de sédiments'], 'multi', 'Effectivement, ces changements sont principalement dus à l\'érosion, aux dépôts de sédiments et aux crues', 'Non, les facteurs sont l\'érosion et les dépôts de sédiments')">Voir la réponse</button>
+			<p class="reponse"></p>
+		</div>
+
+		<div class="question">
+			<h2>La Loire comporte l'un de ces poissons :</h2>
+
+			<input type="radio" id="r1" name="q3" value="La sardine">
+			<label for="r1">La sardine</label>
+
+			<input type="radio" id="r2" name="q3" value="Le goujon">
+			<label for="r2">Le goujon</label>
+
+			<input type="radio" id="r3" name="q3" value="L'espadon">
+			<label for="r3">L'espadon</label>
+
+			<input type="radio" id="r4" name="q3" value="Le maquerau">
+			<label for="r4">Le maquereau</label>
+			<br>
+			<button onclick="afficherReponse(this, 'Le goujon', 'seule', 'Oui, la Loire abrite le goujon, mais également le brochet, la carpe, le saumon ou encore l\'anguille', 'Non, la Loire abrite le goujon')">Voir la réponse</button>
+			<p class="reponse"></p>
+		</div>
+
+		<nav>
+			<p><a href="Home.html">- Retour au Home</a></p>
+			<p><a href="Quizz 3.html">- Quizz suivant</a></p>
+
+		</nav>
+
+		</div>
+
+		<div class="adroite"></div>
 
 	</div>
 
